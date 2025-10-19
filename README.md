@@ -87,6 +87,7 @@ df.write.format("delta") \
 - Dados originais preservados
 - Formato Delta para ACID transactions
 - Metadados de ingestão (timestamp, fonte)
+- Um notebook para cada arquivo
 
 ## 🥈 Camada Silver (Cleaned Data)
 
