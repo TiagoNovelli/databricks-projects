@@ -1,4 +1,4 @@
-# 🏅 Arquitetura Medalhão - Flight Data Pipeline
+# 🏅 Arquitetura Medalhão - Pipeline
 
 Projeto demonstrando a implementação da **Arquitetura Medalhão (Medallion Architecture)** utilizando **Delta Lake** e **Apache Spark** no Databricks.
 
