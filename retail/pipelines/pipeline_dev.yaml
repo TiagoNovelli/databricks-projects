@@ -1,0 +1,96 @@
+resources:
+  jobs:
+    retails_pipeline:
+      name: retails_pipeline
+      tasks:
+        - task_key: 01_bronze_active_promotions_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/1.bronze/dev/01_bronze_active_promotions_dev
+            source: WORKSPACE
+        - task_key: 02_bronze_company_employees_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/1.bronze/dev/02_bronze_company_employees_dev
+            source: WORKSPACE
+        - task_key: 03_bronze_customers_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/1.bronze/dev/03_bronze_customers_dev
+            source: WORKSPACE
+        - task_key: 04_bronze_loyalty_segments_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/1.bronze/dev/04_bronze_loyalty_segments_dev
+            source: WORKSPACE
+        - task_key: 05_bronze_products_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/1.bronze/dev/05_bronze_products_dev
+            source: WORKSPACE
+        - task_key: 06_bronze_promotions_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/1.bronze/dev/06_bronze_promotions_dev
+            source: WORKSPACE
+        - task_key: 07_bronze_purchase_orders_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/1.bronze/dev/07_bronze_purchase_orders_dev
+            source: WORKSPACE
+        - task_key: 08_bronze_sales_orders_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/1.bronze/dev/08_bronze_sales_orders_dev
+            source: WORKSPACE
+        - task_key: 09_sales_stream_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/1.bronze/dev/09_bronze_sales_stream_dev
+            source: WORKSPACE
+        - task_key: 11_bronze_suppiers_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/1.bronze/dev/11_bronze_suppliers_dev
+            source: WORKSPACE
+        - task_key: 000-bronze_validation_dev
+          depends_on:
+            - task_key: 05_bronze_products_dev
+            - task_key: 03_bronze_customers_dev
+            - task_key: 09_sales_stream_dev
+            - task_key: 06_bronze_promotions_dev
+            - task_key: 11_bronze_suppiers_dev
+            - task_key: 01_bronze_active_promotions_dev
+            - task_key: 07_bronze_purchase_orders_dev
+            - task_key: 08_bronze_sales_orders_dev
+            - task_key: 04_bronze_loyalty_segments_dev
+            - task_key: 02_bronze_company_employees_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/1.bronze/dev/000-bronze_validation_dev
+            source: WORKSPACE
+        - task_key: 01_silver_sale_order_line_dev
+          depends_on:
+            - task_key: 000-bronze_validation_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/2.silver/dev/01_silver_sale_order_line_dev
+            source: WORKSPACE
+        - task_key: 02_silver_purchase_order_dev
+          depends_on:
+            - task_key: 000-bronze_validation_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/2.silver/dev/02_silver_purchase_order_dev
+            source: WORKSPACE
+        - task_key: 03_silver_customers_dev
+          depends_on:
+            - task_key: 000-bronze_validation_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/2.silver/dev/03_silver_customers_dev
+            source: WORKSPACE
+        - task_key: 04_silver_suppliers_dev
+          depends_on:
+            - task_key: 000-bronze_validation_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/2.silver/dev/04_silver_suppliers_dev
+            source: WORKSPACE
+        - task_key: 000-silver_validation_dev
+          depends_on:
+            - task_key: 01_silver_sale_order_line_dev
+            - task_key: 02_silver_purchase_order_dev
+            - task_key: 03_silver_customers_dev
+            - task_key: 04_silver_suppliers_dev
+          notebook_task:
+            notebook_path: /Workspace/Users/tiagonovelli95@gmail.com/databricks-projects/retail/2.silver/dev/000-silver_validation_dev
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
