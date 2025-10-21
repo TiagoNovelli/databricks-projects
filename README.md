@@ -43,6 +43,10 @@ data-lakehouse/
 │   ├── silver/
 │   └── gold/
 │
+├── pipelines/
+│   ├── pipeline_dev.yaml/
+│   └── pipeline_prod.yaml/
+│
 ├── inputs/
 │   ├── raw_files/
 │   ├── api_exports/
@@ -63,8 +67,8 @@ data-lakehouse/
 
 **Fonte:** Databricks Sample Datasets
 - `dbfs:/databricks-datasets/flights/` - Atrasos em vôos (Apenas duas tabelas)
-- `dbfs:/databricks-datasets/retail-org` - Dados empresariais
-- `dbfs:/databricks-datasets/credit-card-fraud` - Fraude em cartões de crédito (Ideal para Machine Learning)
+- `dbfs:/databricks-datasets/retail-org` - Dados empresariais, varias tabelas (ETL, API, Medallion architecture)
+- `dbfs:/databricks-datasets/credit-card-fraud` - Fraude em cartões de crédito (PCA, Ideal para Machine Learning)
 
 ## 🥉 Camada Bronze (Raw Data)
 
