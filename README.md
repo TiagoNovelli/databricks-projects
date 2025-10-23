@@ -12,7 +12,25 @@ Este projeto implementa um pipeline de dados em três camadas (Bronze, Silver, G
 - ✅ Qualidade e governança de dados
 - ✅ Análises e métricas de negócio
 
-## 🗂️ Estrutura do Projeto
+---
+## 📊 Projetos por Tipo de Arquivo
+
+| Tipo de Arquivo | Link GitHub | Andamento | Estrutura de Medalhão |
+|-----------------|-------------|-----------|-----------|
+| Parquet | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/1.bronze/dev/01_bronze_active_promotions_dev.ipynb) | ✅ Concluído | ✅ Concluído |
+| JSON | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/1.bronze/dev/08_bronze_sales_orders_dev.ipynb) | ✅ Concluído | ✅ Concluído |
+| CSV | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/1.bronze/dev/02_bronze_company_employees_dev.ipynb) | ✅ Concluído | ✅ Concluído |
+| TXT | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/fly-analysis/01_bronze_ingestion.ipynb) | ⏸️ Pausado | ✅ Concluído |
+| XML | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/1.bronze/dev/07_bronze_purchase_orders_dev.ipynb) | 📝 Planejado | ✅ Concluído |
+| MongoDB | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/mongodb/sample_mflix/MongoDB.ipynb) | 📝 Planejado | ✅ Concluído |
+| Telemetria | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/telemetria/iot/01_bronze_iot_dev.ipynb) | 📝 Planejado | ✅ Concluído |
+| Pipeline | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/pipelines/pipeline_dev.yaml) | ✅ Concluído | | ✅ Concluído |
+
+
+
+
+---
+## 🗂️ Estrutura a ser implantada nos projetos
 
 ```
 data-lakehouse/
@@ -189,24 +207,20 @@ df_gold_final.write.format("delta") \
 ## 📈 Queries Analíticas Exemplo
 - CTE são muito uteis nas querys SQL para ETL.
 ```sql
--- Top 10 aeroportos com maiores atrasos médios
-SELECT 
-    origin,
-    City,
-    State,
-    avg_delay,
-    total_flights
-FROM delta.`/mnt/delta/gold/airport_performance`
-ORDER BY avg_delay DESC
-LIMIT 10;
-
--- Taxa de pontualidade por estado
+-- Calculando o atraso médio por estado
+WITH avg_delays AS (
+    SELECT 
+        State,
+        AVG(avg_delay) AS mean_delay
+    FROM delta.`/mnt/delta/gold/airport_performance`
+    GROUP BY State
+)
 SELECT 
     State,
-    SUM(total_flights - delayed_flights) * 100.0 / SUM(total_flights) as on_time_rate
-FROM delta.`/mnt/delta/gold/airport_performance`
-GROUP BY State
-ORDER BY on_time_rate DESC;
+    mean_delay
+FROM avg_delays
+WHERE mean_delay > 10
+ORDER BY mean_delay DESC;
 ```
 
 ## 🔧 Benefícios do Delta Lake
