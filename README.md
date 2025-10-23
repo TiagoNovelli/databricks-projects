@@ -16,7 +16,7 @@ Este projeto implementa um pipeline de dados em três camadas (Bronze, Silver, G
 
 ```
 data-lakehouse/
-│ 
+│  
 ├── projeto/
 │   ├── resource/                 # dados de origem e entrega
 │   │   ├── inputs/               # arquivos CSV/Parquet recebidos da fonte
