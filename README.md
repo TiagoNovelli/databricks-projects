@@ -15,16 +15,18 @@ Este projeto implementa um pipeline de dados em três camadas (Bronze, Silver, G
 ---
 ## 📊 Projetos por Tipo de Arquivo
 
-| Tipo de Arquivo | Link GitHub | Andamento | Estrutura de Medalhão |
-|-----------------|-------------|-----------|-----------|
-| Parquet | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/1.bronze/dev/01_bronze_active_promotions_dev.ipynb) | ✅ Concluído | ✅ Concluído |
-| JSON | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/1.bronze/dev/08_bronze_sales_orders_dev.ipynb) | ✅ Concluído | ✅ Concluído |
-| CSV | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/1.bronze/dev/02_bronze_company_employees_dev.ipynb) | ✅ Concluído | ✅ Concluído |
-| TXT | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/fly-analysis/01_bronze_ingestion.ipynb) | ⏸️ Pausado | ✅ Concluído |
-| XML | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/1.bronze/dev/07_bronze_purchase_orders_dev.ipynb) | 📝 Planejado | ✅ Concluído |
-| MongoDB | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/mongodb/sample_mflix/MongoDB.ipynb) | 📝 Planejado | ✅ Concluído |
-| Telemetria | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/telemetria/iot/01_bronze_iot_dev.ipynb) | 📝 Planejado | ✅ Concluído |
-| Pipeline | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/pipelines/pipeline_dev.yaml) | ✅ Concluído | | ✅ Concluído |
+| Tipo de Arquivo | Link GitHub | Andamento | Estrutura de Medalhão | Observação |
+|-----------------|-------------|-----------|-----------|-----------|
+|  ETL | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/fly-analysis/01_bronze_ingestion.ipynb) | ✅ Concluído | ✅ Concluído | Tab. temporária, CTE, Explodindo Array
+| Parquet | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/1.bronze/dev/01_bronze_active_promotions_dev.ipynb) | ✅ Concluído | ✅ Concluído | Leitura |
+| JSON | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/1.bronze/dev/08_bronze_sales_orders_dev.ipynb) | ✅ Concluído | ✅ Concluído | Leitura |
+| CSV | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/1.bronze/dev/02_bronze_company_employees_dev.ipynb) | ✅ Concluído | ✅ Concluído | Leitura |
+| TXT | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/fly-analysis/01_bronze_ingestion.ipynb) | ✅ Concluído | ❌ Não iniciado | Leitura |
+| XML | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/1.bronze/dev/07_bronze_purchase_orders_dev.ipynb) | 📝 Planejado | ✅ Concluído | Leitura |
+| MongoDB | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/mongodb/sample_mflix/MongoDB.ipynb) | 📝 Planejado | ✅ Concluído | Análise Exploratória, achatamento de Json |
+| Telemetria | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/telemetria/iot/01_bronze_iot_dev.ipynb) | 📝 Planejado | ❌ Não iniciadoo | Análise exploratória |
+| Pipeline | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/pipelines/pipeline_dev.yaml) | ✅ Concluído | ✅ Concluído | Pipiline dev em yaml |
+| ML PCA  | [link-do-arquivo](https://github.com/TiagoNovelli/databricks-projects/blob/main/retail/pipelines/pipeline_dev.yaml) | 📝 Planejado | ❌ Não iniciado | Teste de regressão logística |
 
 
 
