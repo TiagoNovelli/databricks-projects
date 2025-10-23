@@ -16,7 +16,12 @@ Este projeto implementa um pipeline de dados em três camadas (Bronze, Silver, G
 
 ```
 data-lakehouse/
-├── notebooks/
+│ 
+├── projeto/
+│   ├── resource/                 # dados de origem e entrega
+│   │   ├── inputs/               # arquivos CSV/Parquet recebidos da fonte
+│   │   └── outputs/              # exportações (CSV, Parquet, Excel) para clientes ou setores
+│   │
 │   ├── bronze/
 │   │   ├── dev/
 │   │   │   └── 01_bronze_ingestion_dev.py
@@ -29,33 +34,15 @@ data-lakehouse/
 │   │   └── prod/
 │   │       └── 02_silver_transformation_prod.py
 │   │
-│   ├── gold/
-│   │   ├── dev/
-│   │   │   └── 03_gold_aggregation_dev.py
-│   │   └── prod/
-│   │       └── 03_gold_aggregation_prod.py
-│   │
-│   └── analytics/
-│       └── 04_analytics_queries.py
-│
-├── data/
-│   ├── bronze/
-│   ├── silver/
-│   └── gold/
+│   └──── gold/
+│       ├── dev/
+│       │   └── 03_gold_aggregation_dev.py
+│       └── prod/
+│           └── 03_gold_aggregation_prod.py
 │
 ├── pipelines/
 │   ├── pipeline_dev.yaml/
 │   └── pipeline_prod.yaml/
-│
-├── inputs/
-│   ├── raw_files/
-│   ├── api_exports/
-│   └── external_sources/
-│
-├── outputs/
-│   ├── reports/
-│   ├── dashboards/
-│   └── exports/
 │
 ├── schemas/
 │   └── table_schemas.py
@@ -66,9 +53,11 @@ data-lakehouse/
 ## 📁 Datasets Utilizados
 
 **Fonte:** Databricks Sample Datasets
-- `dbfs:/databricks-datasets/flights/` - Atrasos em vôos (Apenas duas tabelas)
-- `dbfs:/databricks-datasets/retail-org` - Dados empresariais, varias tabelas (ETL, API, Medallion architecture)
-- `dbfs:/databricks-datasets/credit-card-fraud` - Fraude em cartões de crédito (PCA, Ideal para Machine Learning)
+- `fly-analysis/` - Atrasos em vôos (Apenas duas tabelas)
+- `retail/` - Dados empresariais, varias tabelas (ETL, API, Medallion architecture)
+- `credit-card-fraud/` - Fraude em cartões de crédito (PCA, Ideal para Machine Learning)
+- `telemetria/` - Dados de telemetria (Iot)
+- `mongodb/` - Dados NoSQL MongoDB
 
 ## 🥉 Camada Bronze (Raw Data)
 
